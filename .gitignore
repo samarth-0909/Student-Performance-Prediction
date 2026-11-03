@@ -1,3 +1,4 @@
+
 # Python cache
 __pycache__/
 *.py[cod]
@@ -6,12 +7,20 @@ __pycache__/
 .venv/
 venv/
 
+# Environment variables
+.env
+
 # Jupyter
 .ipynb_checkpoints/
 
 # IDE settings
 .vscode/
 
-# Operating system files
-.DS_Store
-Thumbs.db
+# Model files
+# Keep the trained model in Git for this portfolio project.
+
+# AI development files
+.agents/
+
+# AI development files
+.agents/
