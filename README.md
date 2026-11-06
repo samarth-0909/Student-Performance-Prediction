@@ -1,66 +1,80 @@
 # Student Performance Prediction & Analytics System
 
-A Data Science and Machine Learning project that explores student academic performance and aims to predict student outcomes using Python.
+<p align="center">
+  <img src="README-banner.png" alt="Student Performance Prediction Banner" width="100%">
+</p>
 
-## Project Overview
+<p align="center">
+  <a href="https://student-performance-prediction-samarth-0909.streamlit.app/">
+    <strong>🚀 Launch Live Application</strong>
+  </a>
+</p>
 
-The **Student Performance Prediction & Analytics System** is designed to analyse students' academic performance, identify important factors affecting final grades, and develop machine learning models to predict student performance.
+A Python and Machine Learning project that analyses student academic performance and predicts final mathematics grades using multiple regression models.
 
-The project uses the Student Performance dataset from the UCI Machine Learning Repository.
+## About the Project
 
-## Objectives
+The Student Performance Prediction & Analytics System explores student demographic, social, and academic information to identify patterns associated with academic performance.
 
-- Analyse student academic performance.
-- Explore factors that influence final grades.
-- Visualise patterns and relationships in student data.
-- Develop machine learning models to predict final grades.
-- Identify students who may be at academic risk.
-- Build an interactive dashboard for analysing predictions.
+It uses data preprocessing, exploratory data analysis, machine learning model comparison, and an interactive Streamlit application.
 
-*Note: The machine learning and dashboard features are planned development stages.*
+## Features
+
+- Student dataset exploration and analysis
+- Data preprocessing and categorical encoding
+- Feature scaling and train-test splitting
+- Exploratory data visualisations
+- Linear Regression, Decision Tree and Random Forest comparison
+- Final grade prediction for individual students
+- Interactive Streamlit dashboard
+- Prediction results and CSV downloads
 
 ## Technologies Used
 
 - Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn (planned)
-- Streamlit (planned)
+- Pandas and NumPy
+- Scikit-learn
+- Matplotlib and Seaborn
+- Streamlit
+- Joblib
 - Git and GitHub
 
 ## Dataset
 
-**Dataset:** Student Performance Data Set
+**Source:** [UCI Student Performance Dataset](https://archive.ics.uci.edu/dataset/320/student+performance)
 
-**Source:** UCI Machine Learning Repository
+This project uses the mathematics dataset (`student-mat.csv`), containing 395 student records and 33 original columns, including the final grade (`G3`).
 
-[Student Performance Dataset – UCI](https://archive.ics.uci.edu/dataset/320/student+performance)
+## Machine Learning Results
 
-The dataset contains student demographic, social, school-related, and academic information.
+The models were evaluated on a held-out test set.
 
-The mathematics dataset (`student-mat.csv`) is currently used in this project.
+| Model | MAE | R² Score |
+|---|---:|---:|
+| Linear Regression | 1.647 | 0.724 |
+| Decision Tree | 1.278 | 0.733 |
+| Random Forest | 1.209 | 0.803 |
 
-## Exploratory Data Analysis (EDA)
+**Best-performing model: Random Forest**
 
-The initial exploratory data analysis includes:
+- MAE: 1.209
+- R² Score: 0.803
 
-1. Loading and inspecting the dataset.
-2. Checking data types and missing values.
-3. Analysing final grade distribution.
-4. Exploring study time versus final grades.
-5. Analysing previous failures versus final grades.
-6. Creating a correlation heatmap.
+These results describe this particular train-test evaluation and are not a guarantee of future prediction accuracy.
 
-### Visualisations
+## Project Visualisations
 
-The following visualisations have been generated:
+### Grade Distribution
+![Grade Distribution](reports/grade_distribution.png)
 
-- Final Grade Distribution
-- Study Time vs Final Grade
-- Previous Failures vs Final Grade
-- Correlation Heatmap
+### Study Time vs Final Grade
+![Study Time vs Grade](reports/studytime_vs_grade.png)
+
+### Previous Failures vs Final Grade
+![Failures vs Grade](reports/failures_vs_grade.png)
+
+### Correlation Heatmap
+![Correlation Heatmap](reports/correlation_heatmap.png)
 
 ## Project Structure
 
@@ -70,99 +84,71 @@ Student-Performance-Prediction/
 ├── data/
 │   └── student-mat.csv
 │
-├── notebooks/
-│
-├── src/
-│   ├── load_data.py
-│   └── eda.py
-│
 ├── models/
+│   └── student_performance_model.pkl
 │
 ├── reports/
 │   ├── correlation_heatmap.png
 │   ├── failures_vs_grade.png
 │   ├── grade_distribution.png
-│   └── studytime_vs_grade.png
+│   ├── studytime_vs_grade.png
+│   └── prediction_results.csv
 │
-├── screenshots/
+├── src/
+│   ├── app.py
+│   ├── compare_models.py
+│   ├── eda.py
+│   ├── load_data.py
+│   ├── predict.py
+│   ├── preprocess.py
+│   └── train_model.py
 │
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
-## How to Run the Project
+## Run Locally
 
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/samarth-0909/Student-Performance-Prediction.git
-```
-
-### 2. Open the project folder
-
-```bash
 cd Student-Performance-Prediction
 ```
 
-### 3. Create a virtual environment
+### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-### 4. Activate the virtual environment (Windows PowerShell)
+### 3. Activate it on Windows PowerShell
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 5. Install the required libraries
+### 4. Install dependencies
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn streamlit
+pip install -r requirements.txt
 ```
 
-### 6. Run the data loading script
+### 5. Launch the Streamlit application
 
 ```bash
-python src/load_data.py
+python -m streamlit run src/app.py
 ```
 
-### 7. Run the exploratory data analysis
+## Live Demo
 
-```bash
-python src/eda.py
-```
-
-## Current Project Status
-
-- [x] Project setup
-- [x] Dataset collection
-- [x] Data loading
-- [x] Exploratory Data Analysis
-- [x] Data visualisations
-- [ ] Data preprocessing
-- [ ] Feature engineering
-- [ ] Machine Learning model development
-- [ ] Model evaluation and comparison
-- [ ] Student performance prediction
-- [ ] Streamlit dashboard
-- [ ] Final project documentation
-
-## Future Improvements
-
-- Compare multiple machine learning algorithms.
-- Predict student final grades.
-- Develop pass/fail classification.
-- Identify students who may need academic support.
-- Build an interactive Streamlit dashboard.
+[Open Student Performance Prediction](https://student-performance-prediction-samarth-0909.streamlit.app/)
 
 ## Author
 
 **Samarth Bhat**
 
-GitHub: [@samarth-0909](https://github.com/samarth-0909)
+Third Year (TY) Data Science Portfolio Project.
 
----
-
-This project is being developed as part of my Third Year (TY) Data Science portfolio.
+[GitHub Profile](https://github.com/samarth-0909)
